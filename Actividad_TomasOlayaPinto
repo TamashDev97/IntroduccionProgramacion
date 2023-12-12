@@ -1,0 +1,156 @@
+// ALGORITMO CALCULAR EL AUMENTO DEL DOLAR //
+
+Algoritmo Alza_Dolar
+    definir dolar, maximo, minimo, registroDolar, registroDias, AlzaDolar Como Real
+    definir i, n, posicionMax, posicionMin, dias Como Entero
+	
+    maximo <- 0
+    minimo <- 9999999
+	
+    Escribir "¿Cuántos registros desea analizar?"
+    Leer n
+	
+    para i = 1 hasta n Hacer
+        Escribir "Registre el precio del dolar del día ", i, "."
+        Leer dolar
+		
+        registroDolar <- dolar
+		
+        si maximo < dolar Entonces
+            maximo <- dolar
+            posicionMax <- i
+        FinSi
+		
+        si minimo > dolar O i = 1 Entonces
+            minimo <- dolar
+            posicionMin <- i
+        FinSi
+		
+        si maximo > minimo Entonces
+            AlzaDolar <- maximo - minimo
+            posicionMax <- i
+        FinSi
+		
+    FinPara
+	
+    si AlzaDolar > 0 Entonces
+        Escribir "La mayor alza se registró en el día ", posicionMax, " con un aumento de ", AlzaDolar, " en el precio del dolar."
+    SiNo
+        Escribir "No se registró ninguna alza en el precio del dolar."
+    FinSi
+FinAlgoritmo
+
+
+// ALGORITMO NOTAS MATERIA
+
+
+Algoritmo ReglamentoEvaluaciones
+	Definir examen1, examen2, examen3, examenFinal, promedioExamen Como Real
+	Escribir "Ingrese la nota del primer examen: "
+	Leer examen1
+	Escribir "Ingrese la nota del segundo examen: "
+	Leer examen2
+	
+	Si examen1 > 2 y examen2 < 2 Entonces
+		Escribir "Estás reprobado."
+	SiNo 
+		Si examen1 > 9 y examen2 > 9 Entonces
+			Escribir "Felicitaciones has aprobado"
+		SiNo
+			Escribir "Ingrese la nota del tercer examen"
+			leer examen3
+			promedioExamen = (examen1 + examen2 + examen3)/3
+			Si promedioExamen >= 7 Entonces
+				Escribir "Has aprobado la materia, Felicitaciones"
+			SiNo
+				Escribir "Ingrese la nota del exámen final"
+				leer examenFinal
+			FinSi
+			
+				Si promedioExamen<3 o examenFinal <5 Entonces
+					Escribir "Reprobado"
+				SiNo
+					Escribir "Aprobado"
+				finsi
+			FinSi
+		Finsi
+FinAlgoritmo
+
+
+//ALGORITMO MAQUINA DE ALIMENTOS
+
+
+Proceso Máquina_de_alimentos
+	
+
+	Definir precioA, precioB, precioC Como Real;
+	Definir monto, cambio Como Real;
+	Definir moneda10, moneda50, moneda100 Como Entero;
+	Definir monto_pagar, monto_restante Como Real;
+	Definir vuelto, monedaVuelta Como Real;
+	
+	
+	precioA <- 270;
+	precioB <- 340;
+	precioC <- 390;
+	
+	
+	Escribir "Elija producto: A, B o C";
+	Leer producto;
+	
+	
+	Si producto == "A" Entonces
+		monto_pagar <- precioA;
+	SiNo
+		Si producto == "B" Entonces
+			monto_pagar <- precioB;
+		SiNo
+			Si producto == "C" Entonces
+				monto_pagar <- precioC;
+			Fin Si
+		Fin Si
+	Fin Si
+	
+	
+	Escribir "Ingrese monedas:";
+	Leer moneda10, moneda50, moneda100;
+	
+	
+	monto <- moneda10 * 10 + moneda50 * 50 + moneda100 * 100;
+	
+	
+	Si monto > monto_pagar Entonces
+		
+		
+		cambio <- monto - monto_pagar;
+		
+		
+		Escribir "Su vuelto:";
+		Mientras cambio > 0 Hacer
+			Si cambio >= 100 Entonces
+				cambio <- cambio - 100;
+				Escribir 100;
+			SiNo
+				Si cambio >= 50 Entonces
+					cambio <- cambio - 50;
+					Escribir 50;
+				SiNo
+					Si cambio >= 10 Entonces
+						cambio <- cambio - 10;
+						Escribir 10;
+					Fin Si
+				Fin Si
+			Fin Si
+		Fin Mientras
+		
+	Sino
+		Escribir "El monto ingresado es insuficiente para comprar el producto seleccionado.";
+	Fin Si
+	
+FinProceso
+
+
+// ALGORITMO DESCUENTO EN LA TIENDA
+
+
+
